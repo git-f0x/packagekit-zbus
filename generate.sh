@@ -6,9 +6,9 @@ rm -rfv src
 mkdir -p src
 pushd src
 
-cargo run --manifest-path ../zbus/zbus_xmlgen/Cargo.toml --release -- \
+cargo run --manifest-path ../zbus/zbus_xmlgen/Cargo.toml --release -- file \
     ../PackageKit/src/org.freedesktop.PackageKit.xml
-cargo run --manifest-path ../zbus/zbus_xmlgen/Cargo.toml --release -- \
+cargo run --manifest-path ../zbus/zbus_xmlgen/Cargo.toml --release -- file \
     ../PackageKit/src/org.freedesktop.PackageKit.Transaction.xml
 
 for file in *.rs
