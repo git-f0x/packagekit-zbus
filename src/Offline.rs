@@ -10,9 +10,7 @@
 //! section of the zbus documentation.
 //!
 
-use zbus::dbus_proxy;
-
-#[dbus_proxy(
+#[zbus::proxy(
     interface = "org.freedesktop.PackageKit.Offline",
     assume_defaults = true
 )]
@@ -33,28 +31,28 @@ trait Offline {
     fn trigger_upgrade(&self, action: &str) -> zbus::Result<()>;
 
     /// PreparedUpgrade property
-    #[dbus_proxy(property)]
+    #[zbus(property)]
     fn prepared_upgrade(
         &self,
     ) -> zbus::Result<std::collections::HashMap<String, zbus::zvariant::OwnedValue>>;
 
     /// TriggerAction property
-    #[dbus_proxy(property)]
+    #[zbus(property)]
     fn trigger_action(&self) -> zbus::Result<String>;
 
     /// UpdatePrepared property
-    #[dbus_proxy(property)]
+    #[zbus(property)]
     fn update_prepared(&self) -> zbus::Result<bool>;
 
     /// UpdateTriggered property
-    #[dbus_proxy(property)]
+    #[zbus(property)]
     fn update_triggered(&self) -> zbus::Result<bool>;
 
     /// UpgradePrepared property
-    #[dbus_proxy(property)]
+    #[zbus(property)]
     fn upgrade_prepared(&self) -> zbus::Result<bool>;
 
     /// UpgradeTriggered property
-    #[dbus_proxy(property)]
+    #[zbus(property)]
     fn upgrade_triggered(&self) -> zbus::Result<bool>;
 }
